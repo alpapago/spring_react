@@ -1,5 +1,9 @@
 # Q1. Spring Container vs Spring Context vs IOC Container vs Application Context
 
+<br>
+<hr>
+<br>
+
 ## Spring Container vs Spring Context vs IOC Container
 
 - 스프링은 Object의 생성과 관계 설정, 사용및 제거를 application code대신 독립된 container가 담당한다.
