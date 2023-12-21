@@ -1,0 +1,51 @@
+package com.in28minutes.learingspinngframework.helloworld;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class App02HelloWorldSpring {
+	public static void main(String[] args) {
+		// 1 : Launch a Spring Context 
+		
+		// var context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
+		// 이렇게 쓰면, resource leak 오류가 난다. 
+		// >> try with resources 를 이용해서 오류를 해결할 수 있다.
+		
+		// Java7 이전에는 close를 호출하기 위해서 try-catch-finally를 이용해서 Null 검사와 함께 직접 호출해야 했는데,
+		
+		// 		자원 반납에 의해 코드가 복잡해짐
+		//		작업이 번거로움
+		//		실수로 자원을 반납하지 못하는 경우 발생
+		//		에러로 자원을 반납하지 못하는 경우 발생
+		//		에러 스택 트레이스가 누락되어 디버깅이 어려움
+		
+		// 그래서 try with resources를 사용해서
+		// AutoCloseable 인터페이스를 구현하고 있는 자원에 대해 try-with-resources를 적용 가능하도록 하였고, 
+		// 이를 사용함으로써 코드가 유연해지고, 누락되는 에러없이 모든 에러를 잡을 수 있게 되었다.
+	
+		
+		try(var context 
+				= new AnnotationConfigApplicationContext(HelloWorldConfiguration.class)){
+
+			// 2 : Configure the things that we want Spring to manage- @Configuration
+			// HelloWorldConfiguration- @Configuration
+			// name - @Bean
+			
+			// 3 : Retrieving Beans managed by Spring
+			System.out.println(context.getBean("name"));
+
+			System.out.println(context.getBean("age"));
+			
+			System.out.println(context.getBean("person"));
+
+			System.out.println(context.getBean("person2MethodCall"));
+
+			System.out.println(context.getBean("person3MethodCall"));
+
+			System.out.println(context.getBean("address2"));
+			
+//			System.out.println(context.getBean(Address.class));
+		}
+		
+		
+	}
+}
