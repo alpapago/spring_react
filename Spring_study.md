@@ -1,5 +1,7 @@
 # Q1. Spring Container vs Spring Context vs IOC Container vs Application Context
 
+## Spring Container vs Spring Context vs IOC Container
+
 - 스프링은 Object의 생성과 관계 설정, 사용및 제거를 application code대신 독립된 container가 담당한다.
 - 이를 컨테이너가 코드 대신 object에 대한 제어권을 가지고 있다고 해서 IoC(Inversion of Control)이라고 부른다.
 
