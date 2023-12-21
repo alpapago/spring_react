@@ -1,10 +1,8 @@
 # Q1. Spring Container vs Spring Context vs IOC Container vs Application Context
 
-## Spring Container
-
-## Spring Context
-
-## IOC Container
+### Spring Container = Spring Context = IOC Container
+- spring bean과 생명주기를 관리
+- Output : Ready System
 
 ## Application Context
 
