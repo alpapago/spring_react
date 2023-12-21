@@ -18,4 +18,3 @@ java와 spring, springboot에 대한 면접 질문 공부도 같이 해보자!
 - React
 - Docker,Kubernetes
 - AWS EC2
-- prometheus-grafana...?
