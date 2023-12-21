@@ -1,0 +1,16 @@
+package com.in28minutes.learingspinngframework.game;
+
+public interface GamingConsole {
+	void up() {
+		System.out.println("Jump");
+	}
+	void down() {
+		System.out.println("Go into a hole");
+	}
+	void left() {
+		System.out.println("Go left");
+	}
+	void right() {
+		System.out.println("Go right");
+	}
+}

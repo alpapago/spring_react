@@ -1,0 +1,8 @@
+package com.in28minutes.learingspinngframework;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class HelloWorldConfiguration {
+	
+}

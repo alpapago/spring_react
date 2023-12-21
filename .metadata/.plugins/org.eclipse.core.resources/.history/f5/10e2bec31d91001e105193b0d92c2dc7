@@ -1,0 +1,36 @@
+package com.in28minutes.learingspinngframework;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+// record : jdk 16에서 추가된 기능 등호, 해시코드, 두 개의 스트링으로 구성된 메서드를 만들어야 함.
+// java bean 
+
+record Person(String name, int age) {};
+record Address(String firstLine, String city) {};
+
+@Configuration
+public class HelloWorldConfiguration {
+	
+	@Bean
+	public String name() {
+		return "Ranga";
+	}
+	
+	@Bean
+	public int age() {
+		return 15;
+	}
+	
+	@Bean
+	public Person person() {
+		var person = new Person("Ravi",20);
+		return person;
+	}
+	
+	@Bean
+	public Address address() {
+		var address = new Address("","");
+		return address;
+	}
+}

@@ -1,0 +1,14 @@
+package com.in28minutes.learingspinngframework;
+
+import com.in28minutes.learingspinngframework.game.GameRunner;
+import com.in28minutes.learingspinngframework.game.MarioGame;
+
+public class AppGamingBasicJava {
+	public static void main(String[] args) {
+		
+		var game = new 
+		var gameRunner = new GameRunner(marioGame);
+		gameRunner.run();
+	
+	}
+}

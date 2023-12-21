@@ -1,0 +1,5 @@
+package com.in28minutes.learingspinngframework.game;
+
+public interface GamingConsole {
+
+}
