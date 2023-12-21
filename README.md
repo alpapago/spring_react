@@ -9,12 +9,12 @@ java와 spring, springboot에 대한 면접 질문 공부도 같이 해보자!
 |☑️|11월 30일|느슨한결합(interface), springbean |
 ||12월 21일|ch02,03,04,05,06|
 ||12월 22일|ch07,08,09,10,11 |
-||12월 23일|ch |
+||12월 23일|ch12,13,14,15,16 |
+||12월 24일|ch17,18,19,20,21 |
+||12월 25일|ch22,23,24,25 |
 </br>
 
 ## 사용 기술
 
-- Java
-- React
-- Docker,Kubernetes
+- Java, Spring
 - AWS EC2
