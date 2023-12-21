@@ -19,7 +19,10 @@
 - Dependency Injection(DI)를 위한 bean factory에 엔터프라이즈 어플리케이션을 개발하는데 필요한 여러가지 컨테이너 기능을 추가한 것을 application context라고 부른다.
 
   한줄 요약하면, application context = IoC와 DI를 위한 bean factory + 어플리케이션 개발을 위한 컨테이너 기능
-  
+
+<br>
+<br>
+
 # Q2. Java Bean vs Spring Bean vs POJO
 
 POJO 란 plain old java object의 준말로 거의 모든 java object를 의미한다. 
@@ -34,11 +37,17 @@ EJB(Enterprise Java Bean) 이라는 형태를 사용할 때 자주 사용되었�
 
 Spring Bean 은 스프링에서 생성, 사용, 소멸 등의 관리를 하는 객체를 의미한다. POJO나 Spring Bean이나 비슷한 말이다. 
 
+<br>
+<br>
+
 # Q3. Spring 프레임워크가 관리하는 Bean을 모두 나열하려면 어떻게 해야할까?
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;해서, new AnnotationConfigApplicationContext 객체를 만든다음
 context.getBeanDefinitionNames()를 하면, springframework가 관리하는 bean들의 이름을 모두 얻을 수 있다.
 
-# Q4. DI시에 Bean이 여러개라면, 어떤것을 우선순위로 정해야할까?
+<br>
+<br>
+
+# Q4. Dependency Injection(DI) 할 때, Bean이 여러개라면, 특정 Bean을 어떻게 우선순위로 정할 수 있을까?
 
 @Primary annotation을 사용하면 된다. 
