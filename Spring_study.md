@@ -27,8 +27,13 @@ POJO와는 다르게 Java Bean이 되려면 3가지의 기준을 만족해야한
 
 EJB(Enterprise Java Bean) 이라는 형태를 사용할 때 자주 사용되었지만 요즘엔 쓰지 않는다.
 
+Spring Bean 은 스프링에서 생성, 사용, 소멸 등의 관리를 하는 객체를 의미한다. POJO나 Spring Bean이나 비슷한 말이다. 
+
 # Q3. Spring 프레임워크가 관리하는 Bean을 모두 나열하려면 어떻게 해야할까?
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;해서, new AnnotationConfigApplicationContext 객체를 만든다음
+context.getBeanDefinitionNames()를 하면, springframework가 관리하는 bean들의 이름을 모두 얻을 수 있다.
 
+# Q4. DI시에 Bean이 여러개라면, 어떤것을 우선순위로 정해야할까?
 
-# Q4. 여러개의 Bean이 여러개라면, 어떤것을 우선순위로 정해야할까?
+@Primary annotation을 사용하면 된다. 
