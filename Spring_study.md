@@ -1,7 +1,6 @@
 # Q1. Spring Container vs Spring Context vs IOC Container vs Application Context
 
 <br>
-<hr>
 <br>
 
 ## Spring Container vs Spring Context vs IOC Container
