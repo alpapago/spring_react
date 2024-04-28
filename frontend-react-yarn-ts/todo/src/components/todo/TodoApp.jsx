@@ -1,54 +1,73 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import LogoutComponent from "./LogoutComponent";
+import HeaderComponent from "./HeaderComponent";
+import ListTodosComponent from "./ListTodosComponent";
+import ErrorComponent from "./ErrorComponent";
+import WelcomeComponent from "./WelcomeComponent";
+import LoginComponent from "./LoginComponent";
+// import TodoComponent from "./TodoComponent";
+import AuthProvider, { useAuth } from "./security/AuthContext";
+
 import "./TodoApp.css";
+
+function AuthenticatedRoute({ children }) {
+  const authContext = useAuth();
+
+  if (authContext.isAuthenticated) return children;
+
+  return <Navigate to="/" />;
+}
 
 export default function TodoApp() {
   return (
     <div className="TodoApp">
-      Todo Management Application
-      <LoginComponent />
-    </div>
-  );
-}
+      <AuthProvider>
+        <BrowserRouter>
+          <HeaderComponent />
+          <Routes>
+            <Route path="/" element={<LoginComponent />} />
+            <Route path="/login" element={<LoginComponent />} />
 
-function LoginComponent() {
-  const [username, setUsername] = useState("in28minutes");
-  const [password, setPassword] = useState("");
+            <Route
+              path="/welcome/:username"
+              element={
+                <AuthenticatedRoute>
+                  <WelcomeComponent />
+                </AuthenticatedRoute>
+              }
+            />
 
-  function handleUsernameChange(e) {
-    setUsername(e.target.value);
-  }
+            <Route
+              path="/todos"
+              element={
+                <AuthenticatedRoute>
+                  <ListTodosComponent />
+                </AuthenticatedRoute>
+              }
+            />
 
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
+            {/* <Route
+              path="/todo/:id"
+              element={
+                <AuthenticatedRoute>
+                  <TodoComponent />
+                </AuthenticatedRoute>
+              }
+            /> */}
 
-  return (
-    <div className="Login">
-      <div className="LoginForm">
-        <div>
-          <label>User Name</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-        </div>
-        <div>
-          <label>password</label>
-          <input
-            type="text"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div>
-          <button type="button" name="login">
-            login
-          </button>
-        </div>
-      </div>
+            <Route
+              path="/logout"
+              element={
+                <AuthenticatedRoute>
+                  <LogoutComponent />
+                </AuthenticatedRoute>
+              }
+            />
+
+            <Route path="*" element={<ErrorComponent />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
