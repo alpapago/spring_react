@@ -57,6 +57,7 @@ function HeaderComponent() {
           </nav>
         </div>
       </div>
+      <hr />
     </header>
   );
 }
