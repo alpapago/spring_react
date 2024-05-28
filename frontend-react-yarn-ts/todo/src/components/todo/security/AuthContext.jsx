@@ -2,31 +2,18 @@ import { createContext, useContext, useState } from "react";
 import { apiClient } from "../api/ApiClient";
 import { executeJwtAuthenticationService } from "../api/AuthenticationApiService";
 
-//1: Create a Context
 export const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
-//2: Share the created context with other components
 export default function AuthProvider({ children }) {
-  //3: Put some state in the context
   const [isAuthenticated, setAuthenticated] = useState(false);
 
   const [username, setUsername] = useState(null);
 
   const [token, setToken] = useState(null);
 
-  // function login(username, password) {
-  //     if(username==='in28minutes' && password==='dummy'){
-  //         setAuthenticated(true)
-  //         setUsername(username)
-  //         return true
-  //     } else {
-  //         setAuthenticated(false)
-  //         setUsername(null)
-  //         return false
-  //     }
-  // }
+  const valueToBeShared = { isAuthenticated, login, logout, username, token };
 
   // async function login(username, password) {
 
@@ -98,9 +85,7 @@ export default function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider
-      value={{ isAuthenticated, login, logout, username, token }}
-    >
+    <AuthContext.Provider value={valueToBeShared}>
       {children}
     </AuthContext.Provider>
   );

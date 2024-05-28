@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LogoutComponent from "./LogoutComponent";
 import HeaderComponent from "./HeaderComponent";
 import ListTodosComponent from "./ListTodosComponent";
@@ -22,19 +16,6 @@ function AuthenticatedRoute({ children }) {
   if (authContext.isAuthenticated) return children;
 
   return <Navigate to="/" />;
-}
-
-function WelcomeComponent() {
-  const { userName } = useParams();
-
-  return (
-    <div className="WelcomeComponent">
-      <h1> Welcome {userName} </h1>
-      <div>
-        Manage user todos - <a href="/todos">Go here</a>
-      </div>
-    </div>
-  );
 }
 
 export default function TodoApp() {

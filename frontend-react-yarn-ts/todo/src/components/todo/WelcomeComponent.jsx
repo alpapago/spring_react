@@ -4,13 +4,10 @@ import { retrieveHelloWorldPathVariable } from "./api/HelloWorldApiService";
 import { useAuth } from "./security/AuthContext";
 
 function WelcomeComponent() {
-  // const { username } = useParams();
-  const params = useParams();
+  const { username } = useParams();
   const authContext = useAuth();
 
   const [message, setMessage] = useState(null);
-
-  console.log(params.username);
 
   function callHelloWorldRestApi() {
     console.log("called");
@@ -33,7 +30,7 @@ function WelcomeComponent() {
 
   return (
     <div className="WelcomeComponent">
-      <h1>Welcome {params.username}</h1>
+      <h1>Welcome {username}</h1>
       <div>
         Manage your todos - <Link to="/todos">Go here</Link>
       </div>

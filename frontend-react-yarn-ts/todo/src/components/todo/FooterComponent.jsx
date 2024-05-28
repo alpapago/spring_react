@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "./security/AuthContext";
+import "./FooterStyle.css";
 
 function FooterComponent() {
   const authContext = useContext(AuthContext);
